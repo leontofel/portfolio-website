@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { motion } from "framer-motion";
 
 export default function DifferentialsCard() {
     const DifferentialsContainer = styled.section`
@@ -41,10 +41,16 @@ export default function DifferentialsCard() {
         }  
     `;
 
-    return (
-        <>
-            <DifferentialsContainer>
-                <h3>Nossos diferenciais:</h3>
+const Differencials = () => (
+    <motion.div
+      
+        initial={{ opacity: 0, scale: 0.5, x: "100%" }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.5 }}
+        whileInView={{ opacity: 1, x:0 }}
+        viewport={{ once: false }}
+    >
+<h3>Nossos diferenciais:</h3>
                 <hr/>
                 <ul>
                     <li>
@@ -96,6 +102,13 @@ export default function DifferentialsCard() {
                     </li>
                 </ul>
 
+    </motion.div>
+  )    
+
+    return (
+        <>
+            <DifferentialsContainer>
+                <Differencials />
 
             </DifferentialsContainer>
         </>

@@ -33,8 +33,9 @@ export default function Header() {
                         <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
-
-                <h1>SparkInTech</h1>
+                
+                <h1 className="typing-header">SparkInTech</h1>
+               
                 
 
             </HeaderContainer>

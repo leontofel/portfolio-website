@@ -14,6 +14,7 @@ export default function CardToPortfolio() {
             font-size: 2rem;
             text-decoration: none;
             color: whitesmoke;
+            margin-bottom: 3rem;
         }
     `;
     return(

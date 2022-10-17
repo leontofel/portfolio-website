@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { backgroundColor } from "./variables";
+import { backgroundColor, primaryColor, secondaryColor, tertiaryColor } from "./variables";
 
 
 const GlobalStyle = createGlobalStyle`
@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
         // font-family: 'Silkscreen', cursive;
         //background: linear-gradient(-45deg, #000000, #3D0000, #950101, #FF0000);
         // light? background: linear-gradient(-45deg, #041C32, #04293A, #064663, #ECB365);
-        background: linear-gradient(-45deg, #171010, #423F3E, #2B2B2B, #362222);
+        background: linear-gradient(-45deg, ${primaryColor}, ${secondaryColor}, ${tertiaryColor}, ${backgroundColor});
         background-size: 400% 400%;
         animation: gradient 15s ease infinite;
         height: 100vh;
