@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import img from '../../../../assets/imgs/img4.jpg';
 import styled from 'styled-components';
+import { Image } from 'react-bootstrap';
 
 export default function TecnologiesCard() {
 
@@ -14,6 +15,7 @@ export default function TecnologiesCard() {
         img {
             width: 100vw;
             height: 50vh;
+            object-fit: cover;
         }
         a {
             margin: 1rem;
@@ -29,7 +31,7 @@ export default function TecnologiesCard() {
         <>
         
             <Container>
-                <img src={img} alt="tech stack" />
+                <Image src={img} alt="tech stack" fluid={true} />
                 <Link to='/about'>Venha conferir as tecnologias utilizadas</Link>
             </Container>
         

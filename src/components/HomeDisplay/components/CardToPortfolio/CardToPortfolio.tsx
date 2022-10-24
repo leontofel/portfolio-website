@@ -8,13 +8,17 @@ export default function CardToPortfolio() {
     const CardToPortfolioContainer = styled.section`
         padding-top: 2rem;
         margin: 0 auto;
-        width: 80vw;
-        height: 50vh;
+     
+        img {
+            width: 80vw;
+            height: 50vh;
+        
+        }
         a {
             font-size: 2rem;
             text-decoration: none;
             color: whitesmoke;
-            margin-bottom: 3rem;
+            
         }
     `;
     return(
@@ -23,8 +27,8 @@ export default function CardToPortfolio() {
 
           <Link to="/portfolio">
             <p>Confira nossos produtos</p>
-        <Image src={appImage} alt="aplicativos feitos pela empresa" fluid={true} />
-            </Link>  
+        <Image src={appImage} alt="página de aplicativos feitos pela empresa" fluid={true} />
+            </Link>  <br />
         </CardToPortfolioContainer>
         </>
     );
