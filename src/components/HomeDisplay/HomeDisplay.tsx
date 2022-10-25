@@ -46,8 +46,8 @@ export default function HomeDisplay() {
             <AnimateCarouselComponent />
             <AnimateCardToPortfolio />
 
-            <DifferentialsCard />
             <AnimateTecnologiesCard />
+            <DifferentialsCard />
             <AnimateContactLink />
         </>
     );

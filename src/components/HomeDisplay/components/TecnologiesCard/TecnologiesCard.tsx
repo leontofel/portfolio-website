@@ -32,7 +32,7 @@ export default function TecnologiesCard() {
         
             <Container>
                 <Image src={img} alt="tech stack" fluid={true} />
-                <Link to='/about'>Venha conferir as tecnologias utilizadas</Link>
+                <Link to='/techstack'>Venha conferir as tecnologias utilizadas</Link>
             </Container>
         
         </>
