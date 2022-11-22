@@ -3,18 +3,17 @@ import CarouselComponent from "./components/Carousel/CarouselComponent";
 import ContactLink from "./components/ContactLink/ContactLink";
 import DifferentialsCard from "./components/DifferentialsCard/DifferentialsCard";
 import TecnologiesCard from "./components/TecnologiesCard/TecnologiesCard";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring, useAnimation } from "framer-motion";
 
 
 export default function HomeDisplay() {
-
-    const AnimateCarouselComponent = () => (
+        
+        
         <motion.div
-            
         >
             <CarouselComponent />
         </motion.div>
-    );
+    
     const AnimateCardToPortfolio = () => (
         <motion.div
             
