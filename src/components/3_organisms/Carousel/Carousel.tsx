@@ -1,5 +1,5 @@
 import {
-  Box, Button, Flex, Grid, Image, ResponsiveValue, Text,
+  Box, Button, Flex, Grid, Image, Text,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
@@ -11,7 +11,7 @@ export interface ICarouselItem {
 
 interface ICarouselComponentProps {
   imageArray: ICarouselItem[],
-  objectFit?: ResponsiveValue<ObjectFit>,
+  objectFit?: boolean,
 }
 
 export const CarouselComponent = ({ imageArray, objectFit }: ICarouselComponentProps) => {
@@ -52,7 +52,7 @@ export const CarouselComponent = ({ imageArray, objectFit }: ICarouselComponentP
           </Text>
 
           <Image
-            objectFit={objectFit || `cover`}
+            objectFit={objectFit ? `scale-down` : `cover`}
             src={imageArray[selectedIndex].src}
             alt={`${imageArray[selectedIndex].label}`}
             width="100vw"

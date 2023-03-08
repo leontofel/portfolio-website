@@ -49,7 +49,7 @@ export const PortfolioSection = () => {
             Nosso Trabalho
           </Text>
         </Link>
-        <CarouselComponent objectFit="scale-down" imageArray={imageArray} />
+        <CarouselComponent objectFit imageArray={imageArray} />
 
       </Flex>
     </Grid>
