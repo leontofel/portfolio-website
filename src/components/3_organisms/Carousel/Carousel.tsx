@@ -70,6 +70,8 @@ export const CarouselComponent = ({ imageArray, objectFit }: ICarouselComponentP
             <Button
               onClick={handleLeftClick}
               ml="1rem"
+              backgroundColor="rgba(0,0,0,0.8)"
+
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -86,12 +88,13 @@ export const CarouselComponent = ({ imageArray, objectFit }: ICarouselComponentP
               mx="1rem"
               fontSize="1.2rem"
             >
-              {` `}
               {imageArray[selectedIndex].description}
             </Text>
             <Button
               onClick={handleRightClick}
               mr="1rem"
+              backgroundColor="rgba(0,0,0,0.8)"
+
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

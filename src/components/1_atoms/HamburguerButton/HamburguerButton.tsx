@@ -7,7 +7,7 @@ interface IHamburguerButtonProps {
 }
 
 export const HamburguerButton = ({ open, setOpen }: IHamburguerButtonProps) => (
-  <Button onClick={() => setOpen(!open)}>
+  <Button onClick={() => setOpen(!open)} backgroundColor="rgba(0,0,0,0.2)">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="22"
