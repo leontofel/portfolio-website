@@ -1,4 +1,6 @@
-import { Box, Image, Text } from '@chakra-ui/react';
+import {
+  Box, Flex, Grid, Image, Text,
+} from '@chakra-ui/react';
 import { ImageLink } from '@molecules';
 import { CarouselComponent, ICarouselItem } from '@organisms';
 import {
@@ -30,14 +32,14 @@ const Index = () => {
   ];
 
   return (
-    <Container height="100vh" fontFamily="main">
+    <Container height="100vh" fontFamily="main" color="white">
       <Header />
       <Image
         alt="Main banner"
         src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_960_720.jpg"
         w="100vw"
         maxH="80vh"
-        objectFit="contain"
+        objectFit="cover"
       />
 
       <Presentation />
@@ -51,20 +53,32 @@ const Index = () => {
         image={techLink}
         link="/tech"
       />
+      <Grid
+        placeItems="center"
+        backgroundColor="brand.900"
+        w="100%"
+      >
+        <Flex
+          align="center"
+          flexDir="column"
+          maxW={[`100vw`, `100vw`, `100vw`, `1366px`, `1366px`]}
+        >
 
-      <Box my="3rem">
-        <Link href="/contact">
-          <Text position="absolute" mt="1rem" ml="3rem" fontSize="1.2rem">Está esperando o quê?</Text>
-          <Text position="absolute" mt="3rem" ml="6rem" fontSize="1.2rem">Entre em contato</Text>
-          <Image
-            alt="Link de contato"
-            src="https://cdn.pixabay.com/photo/2017/12/02/14/38/contact-us-2993000_960_720.jpg"
-            w="60vw"
-            maxH="40vh"
-            borderRadius={8}
-          />
-        </Link>
-      </Box>
+          <Box my="3rem">
+            <Link href="/contact">
+              <Text position="absolute" mt="1rem" ml="3rem" fontSize="1.2rem">Está esperando o quê?</Text>
+              <Text position="absolute" mt="3rem" ml="6rem" fontSize="1.2rem">Entre em contato</Text>
+              <Image
+                alt="Link de contato"
+                src="https://cdn.pixabay.com/photo/2017/12/02/14/38/contact-us-2993000_960_720.jpg"
+                w="60vw"
+                maxH="40vh"
+                borderRadius={8}
+              />
+            </Link>
+          </Box>
+        </Flex>
+      </Grid>
 
       <Footer />
     </Container>
