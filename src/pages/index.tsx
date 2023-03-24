@@ -32,7 +32,7 @@ const Index = () => {
   ];
 
   return (
-    <Container height="100vh" overflowX="hidden" fontFamily="main" color="white">
+    <Container height="100vh" fontFamily="main" color="white">
       <Header />
       <Image
         alt="Main banner"

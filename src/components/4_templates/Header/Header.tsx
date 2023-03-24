@@ -37,6 +37,7 @@ export const Header = () => {
       position="absolute"
     >
       <Flex
+        maxW={[`100vw`, `100vw`, `100vw`, `1364px`, `1364px`]}
         w="100%"
         h="10vh"
         justifyContent="space-between"
