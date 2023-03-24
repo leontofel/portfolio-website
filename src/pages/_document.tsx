@@ -2,7 +2,6 @@ import { ColorModeScript } from '@chakra-ui/react';
 import NextDocument, {
   Head, Html, Main, NextScript,
 } from 'next/document';
-import logo from '../../assets/img/logo.png';
 
 export default class Document extends NextDocument {
   render() {

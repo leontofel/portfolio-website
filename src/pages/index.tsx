@@ -1,5 +1,5 @@
 import {
-  Box, Flex, Grid, Image, Text,
+  Box, Image,
 } from '@chakra-ui/react';
 import { CarouselComponent, ICarouselItem } from '@organisms';
 import {
