@@ -45,7 +45,7 @@ export const Header = () => {
         px={[`1rem`, `1rem`, `3rem`, `3rem`, `3rem`]}
         position="fixed"
         top={0}
-        backgroundColor={scroll ? `rgba(0,0,0,0.5)` : `none`}
+        backgroundColor={scroll ? `rgba(0,0,0,0.7)` : `none`}
         transition="background-color 0.5s ease-in-out"
       >
         <SideMenu />
