@@ -1,6 +1,7 @@
 import {
   Box, Button, Flex, Grid, Image, Text,
 } from '@chakra-ui/react';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 
 export interface ICarouselItem {
@@ -17,14 +18,18 @@ interface ICarouselComponentProps {
 export const CarouselComponent = ({ imageArray, objectFit }: ICarouselComponentProps) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  const [exitX, setExitX] = useState(0);
+
   const handleLeftClick = () => {
     // eslint-disable-next-line no-unused-expressions
     selectedIndex === 0 ? setSelectedIndex(imageArray.length - 1) : setSelectedIndex(selectedIndex - 1);
+    setExitX(200);
   };
 
   const handleRightClick = () => {
     // eslint-disable-next-line no-unused-expressions
     selectedIndex < imageArray.length - 1 ? setSelectedIndex(selectedIndex + 1) : setSelectedIndex(0);
+    setExitX(-100);
   };
 
   return (
@@ -40,43 +45,49 @@ export const CarouselComponent = ({ imageArray, objectFit }: ICarouselComponentP
       >
         <Box>
           <Text
-            backgroundColor="rgba(0,0,0,0.5)"
+            backgroundColor="black"
             w="100%"
-            position="absolute"
-            pt="2rem"
-            pl="4rem"
-            fontSize="2rem"
+            py="1rem"
+            textAlign="center"
+            fontSize={[`1.2rem`, `1.2rem`, `1.2rem`, `2rem`, `2rem`]}
           >
             {` `}
             {imageArray[selectedIndex].label}
           </Text>
 
-          <Image
-            objectFit={objectFit ? `scale-down` : `cover`}
-            src={imageArray[selectedIndex].src}
-            alt={`${imageArray[selectedIndex].label}`}
-            width="100vw"
-            h="60vh"
-          />
+          <AnimatePresence exitBeforeEnter>
+            <motion.div
+              key={selectedIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              exit={{ x: exitX }}
+            >
+              <Image
+                objectFit={objectFit ? `scale-down` : `cover`}
+                src={imageArray[selectedIndex].src}
+                alt={`${imageArray[selectedIndex].label}`}
+                width="100vw"
+                h="100%"
+              />
+            </motion.div>
+          </AnimatePresence>
+
           <Flex
-            position="relative"
-            top={-20}
-            mb={-20}
             align="center"
             justify="space-between"
-            backgroundColor="rgba(0,0,0,0.5)"
+            backgroundColor="black"
             h="8vh"
           >
             <Button
               onClick={handleLeftClick}
-              ml="1rem"
+              ml="0.5rem"
               backgroundColor="rgba(0,0,0,0.8)"
-
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="22"
+                height="22"
                 fill="currentColor"
                 className="bi bi-caret-left"
                 viewBox="0 0 16 16"
@@ -86,20 +97,20 @@ export const CarouselComponent = ({ imageArray, objectFit }: ICarouselComponentP
             </Button>
             <Text
               mx="1rem"
-              fontSize="1.2rem"
+              fontSize={[`1rem`, `1rem`, `1.2rem`, `1.2rem`, `1.2rem`]}
             >
               {imageArray[selectedIndex].description}
             </Text>
             <Button
               onClick={handleRightClick}
-              mr="1rem"
+              mr="0.5rem"
               backgroundColor="rgba(0,0,0,0.8)"
 
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
+                width="22"
+                height="22"
                 fill="currentColor"
                 className="bi bi-caret-right"
                 viewBox="0 0 16 16"
