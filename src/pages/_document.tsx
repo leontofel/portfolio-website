@@ -2,12 +2,16 @@ import { ColorModeScript } from '@chakra-ui/react';
 import NextDocument, {
   Head, Html, Main, NextScript,
 } from 'next/document';
+import logo from '../../assets/img/logo.png';
 
 export default class Document extends NextDocument {
   render() {
     return (
       <Html>
-        <Head>
+        <Head style={{ backgroundColor: `blue` }}>
+          <title>SparkInTech</title>
+          <meta name="description" content="Venha inovar conosco!" />
+          <link rel="icon" href="portfolio-website/assets/img/logo.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet" />

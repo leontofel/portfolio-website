@@ -27,7 +27,7 @@ export const SideMenu = () => {
             h="100vh"
             backgroundColor="brand.500"
             position="fixed"
-            zIndex={1}
+            zIndex={10}
             top={0}
             left={0}
           >
@@ -44,9 +44,10 @@ export const SideMenu = () => {
                   borderRadius="50%"
                   maxW="5vw"
                   maxH="5vh"
+                  display={[`none`, `none`, `unset`, `unset`, `unset`]}
                 />
               </Link>
-              <Text>SparkInTech</Text>
+              <Text fontSize={[`.8rem`, `.8rem`, `1rem`, `1rem`, `1rem`]}>SparkInTech</Text>
               <Button
                 backgroundColor="black"
                 onClick={() => setOpen(false)}
@@ -93,7 +94,7 @@ export const SideMenu = () => {
                 </Box>
               </Link>
 
-              <Link href="/portfolio">
+              <Link href="/tech">
                 <Box
                   borderBottom="1px solid"
                   borderRadius="10%"
@@ -115,7 +116,7 @@ export const SideMenu = () => {
                 </Box>
               </Link>
 
-              <Link href="/portfolio">
+              <Link href="/contact">
                 <Box
                   borderBottom="1px solid"
                   borderRadius="10%"

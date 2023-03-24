@@ -14,11 +14,11 @@ export const Footer = () => (
     <Flex
       maxW={[`100vw`, `100vw`, `100vw`, `1366px`, `1366px`]}
       w="100%"
-      h="20vh"
+      minH="20vh"
       flexDirection="column-reverse"
       justifyContent="center"
       alignItems="center"
-      mt="1rem"
+      my="2rem"
     >
       <Flex my="1rem" align="center" justify="center" gap="1rem">
 

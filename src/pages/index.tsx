@@ -1,14 +1,16 @@
 import {
   Box, Flex, Grid, Image, Text,
 } from '@chakra-ui/react';
-import { ImageLink } from '@molecules';
 import { CarouselComponent, ICarouselItem } from '@organisms';
 import {
   DifferentialsSection, Footer, Header, PortfolioSection, Presentation,
 } from '@templates';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-import techLink from '../../assets/img/techlink.jpg';
+import contactBanner from '../../assets/img/contact-link.png';
+import techBanner from '../../assets/img/tech-link.png';
 import { Container } from '../components/Container';
 // import { DarkModeSwitch } from '../components/DarkModeSwitch';
 
@@ -31,57 +33,56 @@ const Index = () => {
     },
   ];
 
+  const router = useRouter();
+
   return (
-    <Container height="100vh" fontFamily="main" color="white">
-      <Header />
-      <Image
-        alt="Main banner"
-        src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_960_720.jpg"
-        w="100vw"
-        maxH="80vh"
-        objectFit="cover"
-      />
+    <motion.div
+      key={router.route}
+      initial={{ x: `-100%` }}
+      animate={{ x: `0%` }}
+      exit={{ x: `100%` }}
+    >
+      <Container height="100vh" fontFamily="main" color="white">
+        <Header />
+        <Image
+          alt="Main banner"
+          src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_960_720.jpg"
+          w="100vw"
+          maxH="80vh"
+          objectFit="cover"
+        />
 
-      <Presentation />
-      <CarouselComponent imageArray={imageArray} />
-      <DifferentialsSection />
-      <PortfolioSection />
+        <Presentation />
+        <CarouselComponent imageArray={imageArray} />
+        <DifferentialsSection />
+        <PortfolioSection />
 
-      <ImageLink
-        title="Como a magia acontece?"
-        description="Conheça nossas tecnologias, clique aqui"
-        image={techLink}
-        link="/tech"
-      />
-      <Grid
-        placeItems="center"
-        backgroundColor="brand.900"
-        w="100%"
-      >
-        <Flex
-          align="center"
-          flexDir="column"
-          maxW={[`100vw`, `100vw`, `100vw`, `1366px`, `1366px`]}
-        >
+        <Box>
+          <Link href="/tech">
+            <Image
+              alt="Main banner"
+              src={techBanner.src}
+              w="100vw"
+              maxH="80vh"
+              objectFit="scale-down"
+            />
+          </Link>
+        </Box>
 
-          <Box my="3rem">
-            <Link href="/contact">
-              <Text position="absolute" mt="1rem" ml="3rem" fontSize="1.2rem">Está esperando o quê?</Text>
-              <Text position="absolute" mt="3rem" ml="6rem" fontSize="1.2rem">Entre em contato</Text>
-              <Image
-                alt="Link de contato"
-                src="https://cdn.pixabay.com/photo/2017/12/02/14/38/contact-us-2993000_960_720.jpg"
-                w="60vw"
-                maxH="40vh"
-                borderRadius={8}
-              />
-            </Link>
-          </Box>
-        </Flex>
-      </Grid>
+        <Box py="3rem" backgroundColor="brand.900">
+          <Link href="/contact">
+            <Image
+              alt="Link de contato"
+              src={contactBanner.src}
+              w="100vw"
+              borderRadius={8}
+            />
+          </Link>
+        </Box>
 
-      <Footer />
-    </Container>
+        <Footer />
+      </Container>
+    </motion.div>
   );
 };
 
