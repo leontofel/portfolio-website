@@ -1,10 +1,9 @@
-import {
-  Box, Image,
-} from '@chakra-ui/react';
+import { Box, Image } from '@chakra-ui/react';
 import { CarouselComponent, ICarouselItem } from '@organisms';
 import {
   DifferentialsSection, Footer, Header, PortfolioSection, Presentation,
 } from '@templates';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 import contactBanner from '../../assets/img/contact-link.png';
@@ -32,45 +31,64 @@ const Index = () => {
   ];
 
   return (
-    <Container height="100vh" fontFamily="main" color="white">
-      <Header />
-      <Image
-        alt="Main banner"
-        src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_960_720.jpg"
-        w="100vw"
-        maxH="80vh"
-        objectFit="cover"
-      />
+    <Container
+      height="100vh"
+      fontFamily="main"
+      color="white"
+    >
+      <motion.main
+        initial={{ x: -500 }}
+        animate={{ x: 0 }}
+        layout
+        transition={{
+          duration: 0.3,
+          type: `spring`,
+          stiffness: 300,
+          damping: 18,
+        }}
+      >
+        <Header />
+        <Image
+          alt="Main banner"
+          src="https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_960_720.jpg"
+          w="100vw"
+          maxH="80vh"
+          objectFit="cover"
+        />
 
-      <Presentation />
-      <CarouselComponent imageArray={imageArray} />
-      <DifferentialsSection />
-      <PortfolioSection />
+        <Presentation />
+        <CarouselComponent imageArray={imageArray} />
+        <DifferentialsSection />
+        <PortfolioSection />
 
-      <Box>
-        <Link href="/tech">
-          <Image
-            alt="Main banner"
-            src={techBanner.src}
-            w="100vw"
-            maxH="80vh"
-            objectFit="scale-down"
-          />
-        </Link>
-      </Box>
+        <Box>
+          <Link href="/tech">
+            <Image
+              alt="Main banner"
+              src={techBanner.src}
+              w="100vw"
+              maxH="80vh"
+              objectFit="scale-down"
+            />
+          </Link>
+        </Box>
 
-      <Box py="3rem" backgroundColor="brand.900">
-        <Link href="/contact">
-          <Image
-            alt="Link de contato"
-            src={contactBanner.src}
-            w="100vw"
-            borderRadius={8}
-          />
-        </Link>
-      </Box>
+        <Box
+          py="3rem"
+          backgroundColor="brand.900"
+        >
+          <Link href="/contact">
+            <Image
+              alt="Link de contato"
+              src={contactBanner.src}
+              w="100vw"
+              borderRadius={8}
+            />
+          </Link>
+        </Box>
 
-      <Footer />
+        <Footer />
+      </motion.main>
     </Container>
   );
 };

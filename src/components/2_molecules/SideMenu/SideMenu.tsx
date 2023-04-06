@@ -2,7 +2,7 @@ import { HamburguerButton } from '@atoms';
 import {
   Box, Button, Flex, Image, Text,
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -11,13 +11,17 @@ import logo from '../../../../assets/img/logo.png';
 export const SideMenu = () => {
   const [open, setOpen] = useState(false);
   return (
-    <Box>
+    <AnimatePresence
+      exitBeforeEnter
+      presenceAffectsLayout
+    >
       {open ? (
         <motion.div
-          initial={{ x: -500 }}
-          animate={{ x: 0 }}
+          initial={{ x: -500, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          layout
           transition={{ duration: 1 }}
-          exit={{ x: -500 }}
+          exit={{ x: -500, opacity: 0 }}
         >
           <Flex
             flexDir="column"
@@ -26,7 +30,7 @@ export const SideMenu = () => {
             w={[`50vw`, `50vw`, `50vw`, `35vw`, `35vw`]}
             h="100vh"
             backgroundColor="brand.500"
-            position="fixed"
+            position="absolute"
             zIndex={10}
             top={0}
             left={0}
@@ -47,22 +51,28 @@ export const SideMenu = () => {
                   display={[`none`, `none`, `unset`, `unset`, `unset`]}
                 />
               </Link>
-              <Text fontSize={[`.8rem`, `.8rem`, `1rem`, `1rem`, `1rem`]}>SparkInTech</Text>
+              <Link href="/">
+                <Text fontSize={[`.8rem`, `.8rem`, `1rem`, `1rem`, `1rem`]}>SparkInTech</Text>
+              </Link>
               <Button
                 backgroundColor="black"
                 onClick={() => setOpen(false)}
               >
-                <svg
+                <motion.svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height="16"
                   fill="currentColor"
                   className="bi bi-x"
                   viewBox="0 0 16 16"
+                  whileInView={{ rotate: [720, 0] }}
+                  transition={{ delay: 0.5 }}
+                  initial={{ pathLength: 0, pathOffset: 1 }}
+                  animate={{ pathLength: 1, pathOffset: 0 }}
                 >
                   {/* eslint-disable-next-line max-len */}
                   <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                </svg>
+                </motion.svg>
               </Button>
             </Flex>
             <Flex
@@ -182,6 +192,6 @@ export const SideMenu = () => {
           setOpen={setOpen}
         />
       )}
-    </Box>
+    </AnimatePresence>
   );
 };
