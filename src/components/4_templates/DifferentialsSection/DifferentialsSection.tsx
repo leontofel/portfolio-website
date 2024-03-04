@@ -15,6 +15,7 @@ export const DifferentialsSection = () => (
       flexDir="column"
       maxW={[`100vw`, `100vw`, `100vw`, `1366px`, `1366px`]}
       py="6rem"
+      overflowX="hidden"
     >
       <Text
         textAlign="center"

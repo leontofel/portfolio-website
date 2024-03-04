@@ -1,13 +1,10 @@
-import {
-  Box, Image,
-} from '@chakra-ui/react';
+import { Box, Image } from '@chakra-ui/react';
 import { CarouselComponent, ICarouselItem } from '@organisms';
 import {
   DifferentialsSection, Footer, Header, PortfolioSection, Presentation,
 } from '@templates';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 
 import contactBanner from '../../assets/img/contact-link.png';
 import techBanner from '../../assets/img/tech-link.png';
@@ -33,16 +30,23 @@ const Index = () => {
     },
   ];
 
-  const router = useRouter();
-
   return (
-    <motion.div
-      key={router.route}
-      initial={{ x: `-100%` }}
-      animate={{ x: `0%` }}
-      exit={{ x: `100%` }}
+    <Container
+      height="100vh"
+      fontFamily="main"
+      color="white"
     >
-      <Container height="100vh" fontFamily="main" color="white">
+      <motion.main
+        initial={{ x: -500 }}
+        animate={{ x: 0 }}
+        layout
+        transition={{
+          duration: 0.3,
+          type: `spring`,
+          stiffness: 300,
+          damping: 18,
+        }}
+      >
         <Header />
         <Image
           alt="Main banner"
@@ -69,7 +73,10 @@ const Index = () => {
           </Link>
         </Box>
 
-        <Box py="3rem" backgroundColor="brand.900">
+        <Box
+          py="3rem"
+          backgroundColor="brand.900"
+        >
           <Link href="/contact">
             <Image
               alt="Link de contato"
@@ -81,8 +88,8 @@ const Index = () => {
         </Box>
 
         <Footer />
-      </Container>
-    </motion.div>
+      </motion.main>
+    </Container>
   );
 };
 

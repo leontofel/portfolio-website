@@ -1,27 +1,20 @@
-import { Footer, Header } from '@templates';
+import { Box } from '@chakra-ui/react';
+import { Footer, Header, TechMenu } from '@templates';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
 import React from 'react';
 
-import { Container } from '../components/Container';
-
-const Technologies = () => {
-  const router = useRouter();
-
-  return (
-    <motion.div
-      key={router.route}
+const Technologies = () => (
+  <Box color="white">
+    <motion.main
       initial={{ x: `100%` }}
       animate={{ x: `0%` }}
       exit={{ x: `100%` }}
     >
-
-      <Container height="100vh">
-        <Header />
-        <Footer />
-      </Container>
-    </motion.div>
-  );
-};
+      <Header />
+      <TechMenu />
+      <Footer />
+    </motion.main>
+  </Box>
+);
 
 export default Technologies;
